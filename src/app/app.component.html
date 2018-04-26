@@ -1,20 +1,81 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
 
+  <div class="row">
+    <div class="col-md-10">
+      <input #input (keyup)="getUser( input.value )" type="text" class="form-control" placeholder="Username" >
+    </div>
+  </div>
+
+  <br/>
+
+
+  <div class="row" *ngIf="dataApi != null">
+
+    <div class="col-md-6">
+      <div class="card" style="width: 14rem;">
+        <img class="card-img-top" src="{{ dataApi.avatar_url }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ dataApi.name}} </h5>
+          <a href="https://github.com/{{dataApi.login}}" target="_blank" class="btn btn-primary">Go GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Repositorios Publico <strong>{{ dataApi.public_repos}}</strong> </li>
+        <li class="list-group-item">  <a href="{{ dataApi.blog }}" target="_blank"> Portafolio web </a> </li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+
+
+  <div class="row" [hidden]="!userApi">
+
+    <div class="col-md-6">
+      <div class="card" style="width: 14rem;">
+        <img class="card-img-top" src="{{ userApi.avatar_url }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ userApi.name}} </h5>
+          <a href="https://github.com/{{userApi.login}}" target="_blank" class="btn btn-primary">Go GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Repositorios Publico <strong>{{ userApi.public_repos}}</strong> </li>
+        <li class="list-group-item">  <a href="{{ userApi.blog }}" target="_blank"> Portafolio web </a> </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <br/>
+
+  <div class="row">
+    <div class="col-md-10" *ngFor="let imageApi of imagesApi">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <img class="card-img-top" src="{{ imageApi.previewURL }}" alt="Card image cap">
+          <h5 class="card-title">Usuario</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ imageApi.user}}</h6>
+          <a href="#" class="card-link">like  {{ imageApi.likes }}</a>
+          <a href="#" class="card-link">Descargas {{ imageApi.downloads}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <span class="border border-primary"></span>
+
+</div>
