@@ -1,58 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { GithubService, PixabayService } from './services/service.index';
-import {  Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
+
 import 'rxjs/add/operator/map';
-import { Fotos } from './models/fotos.model';
+
+import { ScenarioService, UserService } from './services/service.index';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [GithubService]
+  providers: [ScenarioService,UserService]
 })
 export class AppComponent implements OnInit{
   title = 'app';
 
   ngOnInit(){
+    this.getScenarios()
     this.getUsers()
-    this.getImages()
   }
 
-  dataApi: any = {};
-  userApi: any = {};
-  imagesApi: any = [];
+  scenariosApi: any = [];
+  usersApi: any = [];
 
   constructor(
-    public _githubService: GithubService
+    public _scenarioService: ScenarioService,
+    public _usersService: UserService
   ){
   }
 
+  getScenarios(){
+    this._scenarioService.getScenarios()
+            .subscribe(data => {
+              this.scenariosApi = data.scenarios;
+            })
+  }
+
   getUsers(){
-    this._githubService.getUsers()
+    this._usersService.getUsers()
             .subscribe(data => {
-              this.dataApi = data;
-            })
-  }
-
-  getUser(user){
-    if(user.length <=0){
-      this.getUsers();
-      return;
-    }
-    this._githubService.getUser(user)
-            .subscribe(data => {
-              this.userApi = data;
+              this.usersApi = data.usuarios;
             })
   }
 
 
-  getImages(){
-    this._githubService.getImages()
-            .subscribe(data => {
-              this.imagesApi = data.hits;
-            })
-  }
 
 
 }

@@ -1,81 +1,167 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
+
+<div id="page">
+
+  <nav class="gtco-nav" role="navigation">
+  	<div class="gtco-container">
+
+  		<div class="row">
+  			<div class="col-sm-2 col-xs-12">
+  				<div id="gtco-logo"><a href="index.html"><img src="assets/images/logo.png" alt="Free HTML5 Website Template by GetTemplates.co"></a></div>
+  			</div>
+  			<div class="col-xs-10 text-right menu-1">
+  				<ul>
+  					<li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Usuarios</a></li>
+  					<li><a href="#">Sign In</a></li>
+  					<li><a href="#">Sign Up</a></li>
+  				</ul>
+  			</div>
+  		</div>
+
+  	</div>
+  </nav>
+
+  <header id="gtco-header" class="gtco-cover" role="banner">
+  	<div class="gtco-container">
+  		<div class="row">
+  			<div class="col-md-12 col-md-offset-0 text-left">
+  				<div class="display-t">
+  					<div class="display-tc">
+  						<div class="row">
+  							<div class="col-md-5 text-center header-img">
+  								<img src="assets/images/cube.png" alt="Free HTML5 Website Template by GetTemplates.co">
+  							</div>
+  							<div class="col-md-7 copy">
+  								<h1>Juagos Centro Americanos del Caribe</h1>
+                  <p>Te invitamos a disfrutar de lo mejor en los juegos centro americanos con nuestra aplicacion </p>
+
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </header>
+  <!-- END #gtco-header -->
+
+  <div class="gtco-client">
+  	<div class="gtco-container">
+  		<div class="row">
+  			<div class="col-md-2 col-md-offset-1 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+  				<img src="assets/images/client_1.png" alt="Free Website Template by GetTemplates.co" class="img-responsive">
+  			</div>
+  			<div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+  				<img src="assets/images/client_2.png" alt="Free Website Template by GetTemplates.co" class="img-responsive">
+  			</div>
+  			<div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+  				<img src="assets/images/client_3.png" alt="Free Website Template by GetTemplates.co" class="img-responsive">
+  			</div>
+  			<div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+  				<img src="assets/images/client_4.png" alt="Free Website Template by GetTemplates.co" class="img-responsive">
+  			</div>
+  			<div class="col-md-2 text-center client col-sm-6 col-xs-6 col-xs-offset-0 col-sm-offset-0">
+  				<img src="assets/images/client_5.png" alt="Free Website Template by GetTemplates.co" class="img-responsive">
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  <!-- END .gtco-client -->
+
+  <div class="gtco-section gtco-products">
+  	<div class="gtco-container">
+  		<div class="row row-pb-sm">
+  			<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
+  				<h2>Lo mejor del deporte a la mano</h2>
+  			</div>
+  		</div>
+  		<div class="row row-pb-md">
+  			<div class="col-md-4 col-sm-4">
+  				<a href="#" class="gtco-item two-row bg-img animate-box" style="background-image: url(assets/images/romelio-martinez.jpg)">
+  					<div class="overlay">
+  						<i class="ti-arrow-top-right"></i>
+  						<div class="copy">
+  							<h3>Escenarios</h3>
+  						</div>
+  					</div>
+  					<img src="assets/images/img_1.jpg" class="hidden" alt="Free HTML5 Website Template by GetTemplates.co">
+  				</a>
+  			</div>
+        <div class="col-md-4 col-sm-4">
+  				<a href="#" class="gtco-item two-row bg-img animate-box" style="background-image: url(assets/images/futbol.png)">
+  					<div class="overlay">
+  						<i class="ti-arrow-top-right"></i>
+  						<div class="copy">
+  							<h3>Disciplinas</h3>
+  						</div>
+  					</div>
+  					<img src="assets/images/img_1.jpg" class="hidden" alt="Free HTML5 Website Template by GetTemplates.co">
+  				</a>
+  			</div>
+        <div class="col-md-4 col-sm-4">
+  				<a href="#" class="gtco-item two-row bg-img animate-box" style="background-image: url(assets/images/BAQUI.png)">
+  					<div class="overlay">
+  						<i class="ti-arrow-top-right"></i>
+  						<div class="copy">
+  							<h3>Participantes</h3>
+  						</div>
+  					</div>
+  					<img src="assets/images/img_1.jpg" class="hidden" alt="Free HTML5 Website Template by GetTemplates.co">
+  				</a>
+  			</div>
+  		</div>
+
+  	</div>
+  </div>
+  <!-- END .gtco-products -->
+
+
+
+  <div class="gtco-section gtco-products">
+  	<div class="gtco-container">
+  		<div class="row row-pb-sm">
+  			<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
+  				<h2>Escenarios</h2>
+  			</div>
+  		</div>
+  		<div class="row row-pb-md">
+  			<div *ngFor="let scenarioApi of scenariosApi" class="col-md-4 col-sm-4">
+          <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ scenarioApi.scenarioImage }}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ scenarioApi.nameScenario}}</h5>
+                <p>{{ scenarioApi.descriptionScenario}}</p>
+                <p>{{ scenarioApi.address}}</p>
+              </div>
+            </div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  <!-- END .gtco-products -->
 
   <div class="row">
-    <div class="col-md-10">
-      <input #input (keyup)="getUser( input.value )" type="text" class="form-control" placeholder="Username" >
-    </div>
-  </div>
 
-  <br/>
-
-
-  <div class="row" *ngIf="dataApi != null">
-
-    <div class="col-md-6">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top" src="{{ dataApi.avatar_url }}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{ dataApi.name}} </h5>
-          <a href="https://github.com/{{dataApi.login}}" target="_blank" class="btn btn-primary">Go GitHub</a>
-        </div>
+          <div class="col-lg-12 col-md-12">
+            <h2>Lista de usuarios</h2>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Celular</th>
+                  <th scope="col">Direccion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let userApi of usersApi">
+                  <td>{{ userApi.username }}</td>
+                  <td>{{ userApi.email }}</td>
+                  <td>{{ userApi.phone }}</td>
+                  <td>{{ userApi.address }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
       </div>
-    </div>
-
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li class="list-group-item">Repositorios Publico <strong>{{ dataApi.public_repos}}</strong> </li>
-        <li class="list-group-item">  <a href="{{ dataApi.blog }}" target="_blank"> Portafolio web </a> </li>
-      </ul>
-    </div>
-
-  </div>
-
-</div>
-
-
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-
-
-  <div class="row" [hidden]="!userApi">
-
-    <div class="col-md-6">
-      <div class="card" style="width: 14rem;">
-        <img class="card-img-top" src="{{ userApi.avatar_url }}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{ userApi.name}} </h5>
-          <a href="https://github.com/{{userApi.login}}" target="_blank" class="btn btn-primary">Go GitHub</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li class="list-group-item">Repositorios Publico <strong>{{ userApi.public_repos}}</strong> </li>
-        <li class="list-group-item">  <a href="{{ userApi.blog }}" target="_blank"> Portafolio web </a> </li>
-      </ul>
-    </div>
-
-  </div>
-
-  <br/>
-
-  <div class="row">
-    <div class="col-md-10" *ngFor="let imageApi of imagesApi">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <img class="card-img-top" src="{{ imageApi.previewURL }}" alt="Card image cap">
-          <h5 class="card-title">Usuario</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ imageApi.user}}</h6>
-          <a href="#" class="card-link">like  {{ imageApi.likes }}</a>
-          <a href="#" class="card-link">Descargas {{ imageApi.downloads}}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <span class="border border-primary"></span>
-
 </div>

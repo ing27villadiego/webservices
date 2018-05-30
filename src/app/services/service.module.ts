@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  GithubService
+  ScenarioService,
+  UserService
 } from './service.index';
 
 @NgModule({
@@ -10,7 +11,8 @@ import {
     CommonModule
   ],
   providers: [
-    GithubService
+    ScenarioService,
+    UserService
   ],
   declarations: []
 })

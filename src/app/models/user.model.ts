@@ -1,10 +1,7 @@
 export class User {
-    public login?: string;
+    public username?: string;
     public id?: string;
-    public avatar_url?: string;
-    public url?: string;
-    public repos_url?: string;
-    public followers_url?: string;
+    public address?: string;
+    public phone?: string;
     public email?: string;
-    public followers?: User[];
 }
